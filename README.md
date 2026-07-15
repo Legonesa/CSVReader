@@ -1,2 +1,37 @@
-# CSVReader
-C++ tabanlı, esnek bir CSV okuma kütüphanesi. Belirli satırları, sütunları veya aralıkları belleğe alarak hızlı veri işleme ve güvenli tip dönüşümü imkanı sunar.
+# C++ CSV Reader 📊
+
+A lightweight, flexible, and easy-to-use C++ library designed for parsing and managing CSV files. It allows you to read entire files, specific rows, or custom ranges into memory efficiently.
+
+## 🚀 Features
+
+* **Flexible Reading Options:** Load the entire file, a specific row, or a designated range of rows.
+* **Column-Based Operations:** Read only the categories (columns) you need, or a specific range within those columns, to optimize memory usage.
+* **Safe Data Retrieval:** Retrieve values as strings (`std::string`) or numeric values (`long double`) with built-in error handling. If a conversion fails, the library prints an error message and returns `0` instead of crashing.
+* **Memory Management:** Easily clear all stored values and free up memory using the `freeMemory()` method.
+
+## 💻 Usage
+
+Integrating the library into your project is straightforward. Just include `readCSV.hpp` and `readCSV.cpp` in your project directory and compile them with your main program.
+
+```cpp
+#include <iostream>
+#include "readCSV.hpp"
+
+int main() {
+    // 1. Initialize the dataset and parse headers (categories)
+    DataSet myData("data.csv");
+
+    // 2. Load the CSV content (or specific sections) into memory
+    myData.readCSV(); 
+
+    // 3. Retrieve values safely
+    std::string name = myData.getValueStr("Name", 2);
+    long double salary = myData.getValueNum("Salary", 2);
+
+    std::cout << "Employee: " << name << " - Salary: " << salary << std::endl;
+
+    // 4. Free up memory when done
+    myData.freeMemory();
+
+    return 0;
+}
