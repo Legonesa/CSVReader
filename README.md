@@ -35,3 +35,21 @@ int main() {
 
     return 0;
 }
+```
+## 🛠️ API Reference
+| Method | Description |
+| :--- | :--- |
+| `DataSet(const char* fileName)` | Constructor. Opens the file and initializes categories. |
+| `readCSV()` | Reads and parses the entire CSV file. |
+| `readCSVinRange(int begin, int end)` | Reads and parses a specific range of rows. |
+| `readCSVRow(int row)` | Reads and parses a single row. |
+| `readCSVCategory(std::string category)` | Reads and parses a single category (column). |
+| `readCSVCategoryinRange(...)` | Reads and parses a specific row range within a category. |
+| `readCSVCategoryinRow(...)` | Reads and parses a single row within a category. |
+| `getValueNum(category, row)` | Retrieves a parsed value as a numeric (`long double`) type. |
+| `getValueStr(category, row)` | Retrieves a parsed value as a string (`std::string`) type. |
+| `getCategoryName(int CategoryIndex)` | Returns the name of the category at the specified index. |
+| `freeMemory()` | Clears the stored values and frees up memory. |
+
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
